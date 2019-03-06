@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC  -I/usr/include -pthread -g -Wall -Werror -std=gnu11   -shared -Wl,-soname,libmempy.so -o libmempy.so CMakeFiles/mempy.dir/tests/mempymodule.c.o libemalloc.so -Wl,-rpath,/user/2/caulierg/SEPC/TP1/ensimag-malloc/build 
