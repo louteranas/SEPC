@@ -1,0 +1,5 @@
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/build/CMakeFiles/alloctest.dir
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/build/CMakeFiles/check.dir
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/build/CMakeFiles/emalloc.dir
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/build/CMakeFiles/mempy.dir
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/build/CMakeFiles/memshell.dir

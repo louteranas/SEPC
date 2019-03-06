@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/src/mem.h
+
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/src/mem_internals.c
+sys/mman.h
+-
+assert.h
+-
+stdint.h
+-
+mem.h
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/src/mem.h
+mem_internals.h
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/src/mem_internals.h
+
+/user/2/caulierg/SEPC/TP1/ensimag-malloc/src/mem_internals.h
+stdio.h
+-
+stdlib.h
+-
+
