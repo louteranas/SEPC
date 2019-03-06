@@ -1,1 +1,0 @@
-/usr/bin/cc   -I/usr/include -pthread -g -Wall -Werror -std=gnu11    -L/usr/lib64 -lgtest -pthread -lgtest_main CMakeFiles/memshell.dir/src/memshell.c.o  -o memshell -rdynamic libemalloc.so -Wl,-rpath,/user/2/caulierg/SEPC/TP1/ensimag-malloc/build 
