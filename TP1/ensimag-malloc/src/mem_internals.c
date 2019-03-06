@@ -20,21 +20,25 @@ void *mark_memarea_and_get_user_ptr(void *ptr, unsigned long size, MemKind k)
     //Calcul de la valeur magique à laquelle on garde les 62 premiers bits
     unsigned long magicValue = (knuth_mmix_one_round(size) & ~(0b111UL));
     //On ajoute les 2 derniers bits (Memkind k est défini dan mem_internals.h)
-    magicValue = magicValue | k;
+    magicValue = magicValue | (k & 0b111UL);
     //On ajoute la taille aux 8 premiers et aux 8 derniers octets
-    *ptr = size;
-    *(ptr + size - 8) = size;
+    *(unsigned int *)ptr = size;
+    *(unsigned int*)(ptr + size - 8) = size;
     //On ajoute la magicValue entre les octets 8 et 16 et entre les octets -16 et -8
-    *(ptr + 8) = magicValue;
-    *(ptr + size - 16) = magicValue;
+    *(unsigned int *)(ptr + 8) = magicValue;
+    *(unsigned int*)(ptr + size - 16) = magicValue;
     //On retourne la première zone utilisable
-    return (ptr + 16);
+    return (void *)(ptr + 16);
 }
 
 Alloc mark_check_and_get_alloc(void *ptr)
 {
     /* ecrire votre code ici */
     Alloc a = {};
+    a.ptr = ptr - 16;
+    a.size = *(unsigned int *)(ptr - 16);
+    a.kind = *(unsigned int *)(ptr - 8) & 0b111UL;
+    assert(*(unsigned int *)(ptr - 8) == *(unsigned int *)(ptr + a.size - 32));
     return a;
 }
 

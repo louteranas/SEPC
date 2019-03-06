@@ -27,7 +27,6 @@ emalloc_medium(unsigned long size)
 {
     assert(size < LARGEALLOC);
     assert(size > SMALLALLOC);
-    /* ecrire votre code ici */
     return (void *) 0;
 }
 
