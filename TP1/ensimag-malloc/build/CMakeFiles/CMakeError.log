@@ -1,0 +1,16 @@
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/ananas/Documents/ProjetImag/SEPC/TP1/ensimag-malloc/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_b42ab/fast"
+No such file or directory
+Generator: execution of make failed. Make command was: "/usr/bin/gmake" "cmTC_b42ab/fast"
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/ananas/Documents/ProjetImag/SEPC/TP1/ensimag-malloc/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_808fe/fast"
+No such file or directory
+Generator: execution of make failed. Make command was: "/usr/bin/gmake" "cmTC_808fe/fast"
+
+
