@@ -30,7 +30,7 @@
 #include <libguile.h>
 
 void q1() {
-	struct Pids *listPids = NULL;
+	struct Pid *listPids = NULL;
 	while (1) {
 		struct cmdline *l;
 		char *line=0;
@@ -62,6 +62,8 @@ void q1() {
 	#endif
 
 	/* parsecmd free line and set it up to 0 */
+	char* cmdLine = malloc(sizeof(char) * (strlen(line) + 1));
+	strcpy(cmdLine, line);
 	l = parsecmd( & line);
 
 	/* If input stream closed, normal termination */
@@ -90,20 +92,29 @@ void q1() {
 		printf("\n");
 	}
 	pid_t pid;
+	//int pipes[2];
 
 	for (i=0; l->seq[i]!=0; i++) {
 			char **cmd = l->seq[i];
-			if(!strcmp(*cmd == "jobs")){
-					jobsDebug(&listPids);
+			if(!strcmp(*cmd, "jobs")){
+					jobs(&listPids);
 					continue;
 			}
-			int id = 0;
+			//pipe(pipes);
 			switch(pid = fork()) {
 				case -1:
-					perror("erroooooor"); break;
+					perror("erroooooor");
+					/*close(pipes[0]);
+					close(pipes[1]);*/
+					break;
 				case 0:
 				{
-					printf("ta mere\n");
+					/*if(i==1){
+							printf("Pipe[0] : %d, Pipe[1] = %d\n", pipes[0], pipes[1]);
+							dup2(pipes[0], 0);
+							//close(pipes[0]);
+							//close(pipes[1]);
+					}*/
 					execvp(*cmd, cmd);
 					break;
 				}
@@ -114,24 +125,61 @@ void q1() {
 						wait(NULL);
 					} else {
 						//struct Pids *listPids = NULL;
-						struct Pids newPid;
-						newPid.pid = pid;
-						newPid.cmd = line;
-						newPid.next = listPids;
+						struct Pid *newPid = malloc(sizeof(struct Pid));
+						newPid->pid = pid;
+						newPid->cmd = cmdLine;
+						newPid->next = listPids;
+						listPids = newPid;
 					}
 					break;
 				}
 			}
+			/*if(!i) {
+				close(pipes[0]);
+				close(pipes[1]);
+			}*/
 		}
 	}
 }
 
-void jobsDebug(struct Pids **listPids) {
-	struct Pids *pid = *listPids;
+
+void jobsDebug(struct Pid **listPids) {
+	struct Pid *pid = *listPids;
 	while(pid != NULL) {
 		printf("PID : [%u]     %s \n", pid->pid, pid->cmd);
 		pid = pid->next;
 	}
+}
+
+void jobs(struct Pid ** listPid){
+	struct Pid *currentPid = *listPid;
+	struct Pid *nextPid = currentPid->next;
+	int statusWait;
+	int statusPid;
+	while (currentPid->next != NULL){
+		statusPid = waitpid(currentPid->pid, &statusWait, WNOHANG);
+		if(statusPid != 0){
+			printf("Pid : %u , %s est fini\n.", currentPid->pid,currentPid->cmd );
+			nextPid = nextPid->next;
+			currentPid->next = nextPid;
+			}
+		else {
+			printf("Pid : %u , %s est en cours d'execution\n.", currentPid->pid,currentPid->cmd );
+		}
+		currentPid = currentPid->next;
+		nextPid = currentPid->next;
+	}
+	statusPid = waitpid(currentPid->pid, &statusWait, WNOHANG);
+	if(statusPid != 0){
+		printf("Pid : %u , %s est fini\n.", currentPid->pid,currentPid->cmd );
+
+		currentPid= NULL;
+		}
+	else {
+		printf("Pid : %u , %s est en cours d'execution\n.", currentPid->pid,currentPid->cmd );
+	}
+
+
 }
 
 int question6_executer(char *line)
