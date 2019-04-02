@@ -30,6 +30,7 @@
 #include <libguile.h>
 
 void q1() {
+	struct Pids *listPids = NULL;
 	while (1) {
 		struct cmdline *l;
 		char *line=0;
@@ -92,25 +93,44 @@ void q1() {
 
 	for (i=0; l->seq[i]!=0; i++) {
 			char **cmd = l->seq[i];
+			if(!strcmp(*cmd == "jobs")){
+					jobsDebug(&listPids);
+					continue;
+			}
+			int id = 0;
 			switch(pid = fork()) {
 				case -1:
 					perror("erroooooor"); break;
 				case 0:
 				{
-					//printf("ta mere\n");
+					printf("ta mere\n");
 					execvp(*cmd, cmd);
 					break;
 				}
 				default:
 				{
-					printf("%d, je suis ton père\n", pid);
-					if(!l->bg)						
+					//printf("%d, je suis ton père\n", pid);
+					if(!l->bg) {
 						wait(NULL);
-
+					} else {
+						//struct Pids *listPids = NULL;
+						struct Pids newPid;
+						newPid.pid = pid;
+						newPid.cmd = line;
+						newPid.next = listPids;
+					}
 					break;
 				}
 			}
 		}
+	}
+}
+
+void jobsDebug(struct Pids **listPids) {
+	struct Pids *pid = *listPids;
+	while(pid != NULL) {
+		printf("PID : [%u]     %s \n", pid->pid, pid->cmd);
+		pid = pid->next;
 	}
 }
 
