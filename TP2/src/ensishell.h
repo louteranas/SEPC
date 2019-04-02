@@ -3,6 +3,12 @@
 
 void q1();
 
+struct Pid{
+  pid_t pid;
+  char * cmd;
+  struct Pid *next;
+}
+
 int question6_executer(char *line);
 
 void terminate(char *line);

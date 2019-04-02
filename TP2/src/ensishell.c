@@ -92,26 +92,58 @@ void q1() {
 
 	for (i=0; l->seq[i]!=0; i++) {
 			char **cmd = l->seq[i];
+			int id = 0;
 			switch(pid = fork()) {
 				case -1:
 					perror("erroooooor"); break;
+					printf("mon pid 1 est : %d\n", pid);
 				case 0:
 				{
+					printf("mon pid 2 est : %d\n", pid);
 					//printf("ta mere\n");
-					execvp(*cmd, cmd);
+					id = execvp(*cmd, cmd);
+					printf("notre ID est : %d\n", id);
+
 					break;
 				}
 				default:
 				{
+					printf("mon pid 3 est : %d\n", pid);
 					printf("%d, je suis ton père\n", pid);
-					if(!l->bg)						
+					if(!l->bg){
 						wait(NULL);
+					}
+						printf("notre ID est : %d\n", id);
 
 					break;
 				}
 			}
 		}
 	}
+}
+
+void jobs(struct Pid ** listPid){
+	struct pid currentPid = **listPid;
+	struct pid nextPid = currentPid.nextPid;
+	int statusWait;
+	int statusPid;
+	while (currentPid != NULL){
+		status = waitpid(currentPid.pid, &statusPid, WNOHANG);
+		if(status != 0)
+			printf("current pid : %u , %s est fini\n.", currentPid.Pid,currentPid.cmd );
+		else
+			printf("current pid : %u , %s est encours d'execution\n.", currentPid.Pid,currentPid.cmd );
+
+	}
+
+
+
+
+
+	while(nextPid != NULL){
+		pidStatus = waitpid_t
+	}
+
 }
 
 int question6_executer(char *line)
