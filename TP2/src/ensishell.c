@@ -129,6 +129,7 @@ void q1() {
 						newPid->pid = pid;
 						newPid->cmd = cmdLine;
 						newPid->next = listPids;
+						newPid->show = 1;
 						listPids = newPid;
 					}
 					break;
@@ -153,29 +154,26 @@ void jobsDebug(struct Pid **listPids) {
 
 void jobs(struct Pid ** listPid){
 	struct Pid *currentPid = *listPid;
-	struct Pid *nextPid = currentPid->next;
+	///struct Pid *nextPid = currentPid->next;
 	int statusWait;
 	int statusPid;
 	while (currentPid->next != NULL){
 		statusPid = waitpid(currentPid->pid, &statusWait, WNOHANG);
-		if(statusPid != 0){
-			printf("Pid : %u , %s est fini\n.", currentPid->pid,currentPid->cmd );
-			nextPid = nextPid->next;
-			currentPid->next = nextPid;
-			}
-		else {
+		if(statusPid != 0 && currentPid->show == 1){
+			printf("Pid : %u , %s est fini\n.", currentPid->pid,currentPid->cmd);
+			currentPid->show = 0;}
+		if(statusPid == 0) {
 			printf("Pid : %u , %s est en cours d'execution\n.", currentPid->pid,currentPid->cmd );
 		}
 		currentPid = currentPid->next;
-		nextPid = currentPid->next;
+		//nextPid = currentPid->next;
 	}
 	statusPid = waitpid(currentPid->pid, &statusWait, WNOHANG);
-	if(statusPid != 0){
+	if(statusPid != 0 && currentPid->show == 1){
 		printf("Pid : %u , %s est fini\n.", currentPid->pid,currentPid->cmd );
-
-		currentPid= NULL;
+		currentPid->show = 0;
 		}
-	else {
+	if(statusPid == 0) {
 		printf("Pid : %u , %s est en cours d'execution\n.", currentPid->pid,currentPid->cmd );
 	}
 

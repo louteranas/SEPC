@@ -12,6 +12,9 @@
 #include <sys/types.h>
 #include <SDL/SDL.h>
 #include <assert.h>
+#include <errno.h>
+#include <sys/mman.h>
+#include <fcntl.h>
 
 const int TAILLE_X = 800;
 const int TAILLE_Y = 600;
@@ -123,9 +126,30 @@ int main(int argc, char **argv)
    * Le tampon a changer pour mettre en place le couplage mémoire
    * entre les différents processus.
    *********************/
-    void *tampon = calloc(TAILLE_X * TAILLE_Y, 4);
-    if (tampon == NULL)
-        handle_error("malloc");
+  /************ Ancienne version avec calloc *******************/
+
+    //void *tampon = calloc(TAILLE_X * TAILLE_Y, 4);
+    //if (tampon == NULL)
+    //    handle_error("malloc");
+
+    /************** Nouvelle version avec shMem ******************/
+
+
+    int fd = shm_open("SharedMem", O_RDWR | O_CREAT , 0777);
+    if (fd == -1) {
+    fprintf(stderr, "Open failed:%s\n", strerror(errno));
+    exit(1);
+    }
+
+    int sizeId = ftruncate(fd, TAILLE_X * TAILLE_Y*4);
+    if (sizeId == -1) {
+    fprintf(stderr, "Open failed:%s\n", strerror(errno));
+    exit(1);
+    }
+
+    void *tampon = mmap(NULL, TAILLE_X * TAILLE_Y*4, PROT_READ | PROT_WRITE,MAP_SHARED, fd, 0);
+
+
 
     /* On associe ce tampon à la zone de dessin. */
     canvas =
@@ -174,7 +198,13 @@ int main(int argc, char **argv)
   fin:
     /* On libère la mémoire avant de s'arrêter. */
     SDL_FreeSurface(canvas);
-    free(tampon);
+    munmap(tampon, TAILLE_X * TAILLE_Y*4);
+    shm_unlink("SharedMem");
+    close(fd);
+
+
+
+    //free(tampon);
     SDL_Quit();
 
     return 0;

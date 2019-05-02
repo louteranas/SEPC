@@ -7,6 +7,7 @@ struct Pid{
   pid_t pid;
   char * cmd;
   struct Pid *next;
+  int show;
 };
 
 int question6_executer(char *line);
