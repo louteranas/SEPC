@@ -1,0 +1,2 @@
+/user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/check.dir
+/user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/ensipong.dir

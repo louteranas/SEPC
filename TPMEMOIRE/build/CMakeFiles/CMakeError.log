@@ -1,0 +1,53 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/rh/devtoolset-8/root/usr/bin/gmake "cmTryCompileExec4267227512/fast"
+/opt/rh/devtoolset-8/root/usr/bin/gmake -f CMakeFiles/cmTryCompileExec4267227512.dir/build.make CMakeFiles/cmTryCompileExec4267227512.dir/build
+gmake[1]: Entering directory '/user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4267227512.dir/CheckSymbolExists.c.o
+/opt/rh/devtoolset-8/root/usr/bin/cc    -o CMakeFiles/cmTryCompileExec4267227512.dir/CheckSymbolExists.c.o   -c /user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec4267227512
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4267227512.dir/link.txt --verbose=1
+/opt/rh/devtoolset-8/root/usr/bin/cc       CMakeFiles/cmTryCompileExec4267227512.dir/CheckSymbolExists.c.o  -o cmTryCompileExec4267227512 -rdynamic 
+CMakeFiles/cmTryCompileExec4267227512.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: Leaving directory '/user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp'
+gmake[1]: *** [CMakeFiles/cmTryCompileExec4267227512.dir/build.make:92: cmTryCompileExec4267227512] Error 1
+gmake: *** [Makefile:117: cmTryCompileExec4267227512/fast] Error 2
+
+File /user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/rh/devtoolset-8/root/usr/bin/gmake "cmTryCompileExec29868651/fast"
+/opt/rh/devtoolset-8/root/usr/bin/gmake -f CMakeFiles/cmTryCompileExec29868651.dir/build.make CMakeFiles/cmTryCompileExec29868651.dir/build
+gmake[1]: Entering directory '/user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec29868651.dir/CheckFunctionExists.c.o
+/opt/rh/devtoolset-8/root/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec29868651.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec29868651
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec29868651.dir/link.txt --verbose=1
+/opt/rh/devtoolset-8/root/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec29868651.dir/CheckFunctionExists.c.o  -o cmTryCompileExec29868651 -rdynamic -lpthreads 
+/opt/rh/devtoolset-8/root/usr/libexec/gcc/x86_64-redhat-linux/8/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTryCompileExec29868651.dir/build.make:92: cmTryCompileExec29868651] Error 1
+gmake[1]: Leaving directory '/user/0/.base/loutera/home/ensimag-shmem/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:117: cmTryCompileExec29868651/fast] Error 2
+
+
