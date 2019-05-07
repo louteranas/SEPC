@@ -1,6 +1,7 @@
 #ifndef ENSIVIDEO_H
 #define ENSIVIDEO_H
 
+#include <pthread.h>
 #include <stdbool.h>
 #include <ogg/ogg.h>
 #include <theora/theora.h>

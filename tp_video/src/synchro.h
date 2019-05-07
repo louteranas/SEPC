@@ -2,11 +2,13 @@
 #define SYNCHRO_H
 
 #include <stdbool.h>
+#include <pthread.h>
 #include "ensitheora.h"
 
 extern bool fini;
 extern pthread_mutex_t video;
 
+pthread_mutex_t dimension;
 
 /* Les extern des variables pour la synchro ici */
 

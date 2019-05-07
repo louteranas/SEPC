@@ -6,7 +6,7 @@
 #include "synchro.h"
 
 bool fini = false;
-
+pthread_mutex_t video;
 
 struct timespec datedebut;
 
@@ -153,7 +153,7 @@ int decodeAllHeaders(int respac, struct streamstate *s, enum streamtype type) {
 		// lancement du thread gérant l'affichage (draw2SDL)
 	        // inserer votre code ici !!
 			pthread_t idDraw;
-			pthread_create(&idDraw, NULL, draw2SDL, (void *)s->serial);
+			pthread_create(&idDraw, NULL, draw2SDL, (void *)(intptr_t)s->serial);
 
 		assert(res == 0);		     
 	    }
