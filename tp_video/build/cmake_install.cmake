@@ -1,4 +1,4 @@
-# Install script for directory: /home/ananas/ensimag-video
+# Install script for directory: /home/ananas/Documents/ProjetImag/SEPC/tp_video
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ananas/ensimag-video/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ananas/Documents/ProjetImag/SEPC/tp_video/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

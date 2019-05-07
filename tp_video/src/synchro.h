@@ -6,9 +6,19 @@
 #include "ensitheora.h"
 
 extern bool fini;
-extern pthread_mutex_t video;
+extern bool gotDimension;
+extern bool allReady;
+extern bool enConsomation;
+extern bool enDeposition;
+extern int textures;
 
-pthread_mutex_t dimension;
+/* les variables pour la synchro, ici */
+extern pthread_mutex_t windowLock;
+extern pthread_mutex_t texLock;
+extern pthread_cond_t condDimension;
+extern pthread_cond_t condReady;
+extern pthread_cond_t peutConsommer;
+extern pthread_cond_t peutDeposer;
 
 /* Les extern des variables pour la synchro ici */
 

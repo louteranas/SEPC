@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ananas/ensimag-video/src/ensitheora.c
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensitheora.c
 stdbool.h
 -
 assert.h
@@ -14,21 +14,21 @@ assert.h
 SDL2/SDL.h
 -
 ensitheora.h
-/home/ananas/ensimag-video/src/ensitheora.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensitheora.h
 synchro.h
-/home/ananas/ensimag-video/src/synchro.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/synchro.h
 stream_common.h
-/home/ananas/ensimag-video/src/stream_common.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/stream_common.h
 
-/home/ananas/ensimag-video/src/ensitheora.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensitheora.h
 ogg/ogg.h
 -
 SDL2/SDL.h
 -
 ensivideo.h
-/home/ananas/ensimag-video/src/ensivideo.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivideo.h
 
-/home/ananas/ensimag-video/src/ensivideo.c
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivideo.c
 stdio.h
 -
 unistd.h
@@ -38,11 +38,15 @@ assert.h
 SDL2/SDL.h
 -
 stream_common.h
-/home/ananas/ensimag-video/src/stream_common.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/stream_common.h
 oggstream.h
-/home/ananas/ensimag-video/src/oggstream.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/oggstream.h
+synchro.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/synchro.h
 
-/home/ananas/ensimag-video/src/ensivideo.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivideo.h
+pthread.h
+-
 stdbool.h
 -
 ogg/ogg.h
@@ -54,9 +58,9 @@ theora/theoradec.h
 vorbis/codec.h
 -
 uthash.h
-/home/ananas/ensimag-video/src/uthash.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/uthash.h
 
-/home/ananas/ensimag-video/src/ensivorbis.c
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivorbis.c
 time.h
 -
 assert.h
@@ -66,15 +70,15 @@ SDL2/SDL.h
 SDL2/SDL_audio.h
 -
 ensivideo.h
-/home/ananas/ensimag-video/src/ensivideo.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivideo.h
 ensivorbis.h
-/home/ananas/ensimag-video/src/ensivorbis.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivorbis.h
 stream_common.h
-/home/ananas/ensimag-video/src/stream_common.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/stream_common.h
 
-/home/ananas/ensimag-video/src/ensivorbis.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivorbis.h
 
-/home/ananas/ensimag-video/src/oggstream.c
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/oggstream.c
 stdio.h
 -
 assert.h
@@ -82,47 +86,49 @@ assert.h
 ogg/ogg.h
 -
 stream_common.h
-/home/ananas/ensimag-video/src/stream_common.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/stream_common.h
 ensitheora.h
-/home/ananas/ensimag-video/src/ensitheora.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensitheora.h
 ensivorbis.h
-/home/ananas/ensimag-video/src/ensivorbis.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivorbis.h
 synchro.h
-/home/ananas/ensimag-video/src/synchro.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/synchro.h
 
-/home/ananas/ensimag-video/src/oggstream.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/oggstream.h
 
-/home/ananas/ensimag-video/src/stream_common.c
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/stream_common.c
 time.h
 -
 assert.h
 -
 ensivorbis.h
-/home/ananas/ensimag-video/src/ensivorbis.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivorbis.h
 ensitheora.h
-/home/ananas/ensimag-video/src/ensitheora.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensitheora.h
 stream_common.h
-/home/ananas/ensimag-video/src/stream_common.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/stream_common.h
 synchro.h
-/home/ananas/ensimag-video/src/synchro.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/synchro.h
 
-/home/ananas/ensimag-video/src/stream_common.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/stream_common.h
 ensivideo.h
-/home/ananas/ensimag-video/src/ensivideo.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensivideo.h
 
-/home/ananas/ensimag-video/src/synchro.c
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/synchro.c
 synchro.h
-/home/ananas/ensimag-video/src/synchro.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/synchro.h
 ensitheora.h
-/home/ananas/ensimag-video/src/ensitheora.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensitheora.h
 
-/home/ananas/ensimag-video/src/synchro.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/synchro.h
 stdbool.h
 -
+pthread.h
+-
 ensitheora.h
-/home/ananas/ensimag-video/src/ensitheora.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/ensitheora.h
 
-/home/ananas/ensimag-video/src/uthash.h
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/src/uthash.h
 string.h
 -
 stddef.h

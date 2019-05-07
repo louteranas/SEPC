@@ -1,7 +1,7 @@
-/home/ananas/ensimag-video/build/CMakeFiles/rebuild_cache.dir
-/home/ananas/ensimag-video/build/CMakeFiles/check.dir
-/home/ananas/ensimag-video/build/CMakeFiles/test.dir
-/home/ananas/ensimag-video/build/CMakeFiles/package.dir
-/home/ananas/ensimag-video/build/CMakeFiles/package_source.dir
-/home/ananas/ensimag-video/build/CMakeFiles/ensivideo.dir
-/home/ananas/ensimag-video/build/CMakeFiles/edit_cache.dir
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/build/CMakeFiles/rebuild_cache.dir
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/build/CMakeFiles/check.dir
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/build/CMakeFiles/test.dir
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/build/CMakeFiles/package.dir
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/build/CMakeFiles/package_source.dir
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/build/CMakeFiles/ensivideo.dir
+/home/ananas/Documents/ProjetImag/SEPC/tp_video/build/CMakeFiles/edit_cache.dir

@@ -5,10 +5,14 @@
 
 #include "stream_common.h"
 #include "oggstream.h"
+#include "synchro.h"
 
+
+pthread_t idDraw;
 
 int main(int argc, char *argv[]) {
     int res;
+    void** threadReturn = NULL; // je ne comprends pas ce que ca doit prendre mais c'est comme ça que c'est utilisé pthread_join sur internet
 
     if (argc != 2) {
 	fprintf(stderr, "Usage: %s FILE", argv[0]);
@@ -31,16 +35,18 @@ int main(int argc, char *argv[]) {
 
     
     // wait audio thread
-
+    pthread_join(idVorbis, threadReturn);
     // 1 seconde de garde pour le son,
     sleep(1);
-    pthread_cancel(idTheora);
-    pthread_cancel(idVorbis);
+    
 
     // tuer les deux threads videos si ils sont bloqués
+    pthread_cancel(idTheora);
+    pthread_cancel(idDraw);
 
     // attendre les 2 threads videos
-
+    pthread_join(idTheora, threadReturn);
+    pthread_join(idDraw, threadReturn);
     
     exit(EXIT_SUCCESS);    
 }
